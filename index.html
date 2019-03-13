@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Versionamento com Git e GitHub</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Versionamento</h1> <h3>com Git e GitHub</h3>
+				</section>
+
+				<section>
+					<section>
+						<h2>O que é um sistema de controle de versão?</h2>
+					</section>
+
+					<section style="text-align: left">
+						<h2>Por que eu deveria usar?</h2>
+						<p class="fragment fade-up">✔️ Reverter um arquivo ou projeto;</p>
+						<p class="fragment fade-up">✔️ Comparar mudanças;</p>
+						<p class="fragment fade-up">✔️ Saber quem foi responsável pelas alterações.</p>
+					</section>
+
+					<section data-background="./img/img_01.jpg" data-background-size="500px"></section>
+
+					<section>
+						<h2>Tipos de sistem de controle de versão</h2>
+					</section>
+
+					<section>
+						<h2>Sistemas de Controle de Versão Locais</h2>
+						<img src="./img/img_02.png">
+					</section>
+
+					<section>
+						<h2>Sistemas de Controle de Versão Centralizados</h2>
+						<img src="./img/img_03.png">
+					</section>
+
+					<section>
+						<h2>Sistemas de Controle de Versão Distribuídos</h2>
+						<img src="./img/img_04.png" height="450px">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Como surgiu o git?</h2>
+					</section>
+
+					<section style="text-align: left">
+						<h2>Uma Breve História do Git</h2>
+						<p class="fragment fade-up">✔️ O kernel do Linux tem um escopo grande;</p>
+						<p class="fragment fade-up">✔️ Mudanças no software eram repassadas como patches;</p>
+						<p class="fragment fade-up">✔️ Em 2002, o projeto começou a usar um sistema DVCS proprietário;</p>
+						<p class="fragment fade-up">✔️ Em 2005, o relacionamento entre a comunidade e a BitKeeper se desfez;</p>
+						<p class="fragment fade-up">✔️ Isso levou a comunidade de desenvolvedores do Linux a desenvolver sua própria ferramenta.</p>
+					</section>
+
+					<section data-background="https://media.giphy.com/media/xndHaRIcvge5y/giphy.gif"></section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Noções Básicas de Git</h2>
+					</section>
+
+					<section>
+						<h2>Snapshots, E Não Diferenças</h2>
+						<img src="./img/img_05.png">
+						<img src="./img/img_06.png">
+					</section>
+
+					<section>
+						<h2>Operações Locais</h2>
+						<img src="./img/img_07.png" height="450px">
+					</section>
+
+					<section>
+						<h2>Git Tem Integridade</h2>
+						<pre><code>24b9da6552252987aa493b52f8696cd6d3b00373</code></pre>
+						<p>Você vai encontrar esses hashes em todo canto, uma vez que Git os utiliza tanto. Na verdade, tudo que o Git armazena é identificado não por nome do arquivo mas pelo valor do hash do seu conteúdo.</p>
+					</section>
+
+					<section>
+						<h2>Os Três Estados</h2>
+						<img src="./img/img_08.png" height="500px">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Instalando o git</h2>
+					</section>
+
+					<section>
+						<h2>No linux</h2>
+						<p style="text-align: left;">Ferramenta de gerenciamento de pacotes:</p>
+						<pre><code>$ apt-get install git</code></pre>
+						<p>ou</p>
+						<pre><code>$ yum install git-core</code></pre>
+					</section>
+
+					<section>
+						<h2>No mac</h2>
+						<p style="text-align: left;">A mais fácil delas é usar o instalador gráfico do Git, que você pode baixar da página do <a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank">SourceForge</a></p>
+					</section>
+
+					<section>
+						<h2>No windows</h2>
+						<p style="text-align: left;">Simplesmente baixe o arquivo .exe do instalador a partir da <a href="https://gitforwindows.org/" target="_blank">página</a> e execute-o</p>
+						<small><p style="text-align: left;">Após concluir a instalação, você terá tanto uma versão command line (linha de comando, incluindo um cliente SSH que será útil depois) e uma GUI padrão.</p></small>
+					</section>
+
+					<section>
+						<h2>Por fim... Configurações</h2>
+						<p>Definindo nome de usuário:</p>
+						<pre><code>git config --global user.name "John Doe"</code></pre>
+						<br>
+						<p>Definindo e-mail de usuário:</p>
+						<pre><code>git config --global user.email johndoe@example.com</code></pre>
+						<br>
+						<p>Verificando suas configurações:</p>
+						<pre><code>git config --list</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>E o GitHub?</h2>
+					</section>
+
+					<section style="text-align: justify">
+						<p>GitHub é uma plataforma de hospedagem de código-fonte com controle de versão usando o Git. Ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo.</p>
+					</section>
+
+					<section>
+						<h2>GitHub</h2>
+						<a href="http://github.com" target="_blank"><img src="./img/img_09.png"></a>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Git na prática</h2>
+					</section>
+
+					<section>
+						<h2>Obtendo & Criando Projetos</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Comando</th>
+									<th>Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><pre><code>git init</code></pre></td>
+									<td>Inicializa um repositório Git local</td>
+								</tr>
+								<tr>
+									<td><pre><code>git clone</code></pre></td>
+									<td>Cria uma cópia local de um repositório remoto</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h2>Comandos básicos</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Comando</th>
+									<th>Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><pre><code>git status</code></pre></td>
+									<td>Verifica o status</td>
+								</tr>
+								<tr>
+									<td><pre><code>git add</code></pre></td>
+									<td>Adiciona um arquivo na staging area</td>
+								</tr>
+								<tr>
+									<td><pre><code>git commit</code></pre></td>
+									<td>Consolida as alterações</td>
+								</tr>
+								<tr>
+									<td><pre><code>git rm</code></pre></td>
+									<td>Remove um arquivo (ou pasta)</td>
+								</tr>
+								<tr>
+									<td><pre><code>git reset</code></pre></td>
+									<td>Reseta o HEAD atual para o estado especificado</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h2>Inspeção e Comparação</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Comando</th>
+									<th>Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><pre><code>git log</code></pre></td>
+									<td>Visualiza alterações</td>
+								</tr>
+								<tr>
+									<td><pre><code>git diff</code></pre></td>
+									<td>Visualiza alterações antes de mesclar</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<section>
+							<h2>Branching & Merging</h2>
+							<table>
+								<thead>
+									<tr>
+										<th>Comando</th>
+										<th>Descrição</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><pre><code>git branch</code></pre></td>
+										<td>Lista e cria branches</td>
+									</tr>
+									<tr>
+										<td><pre><code>git checkout</code></pre></td>
+										<td>Troca de branch</td>
+									</tr>
+									<tr>
+										<td><pre><code>git merge</code></pre></td>
+										<td>Faz a fusão de duas branches</td>
+									</tr>
+									<tr>
+										<td><pre><code>git stash</code></pre></td>
+										<td>Tira o estado sujo do seu diretório de trabalho</td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+					</section>
+
+					<section>
+						<section>
+							<h2>Compartilhando e Atualizando Projetos</h2>
+							<table>
+								<thead>
+									<tr>
+										<th>Comando</th>
+										<th>Descrição</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><pre><code>git push</code></pre></td>
+										<td>Envia alterações para o repositório remoto</td>
+									</tr>
+									<tr>
+										<td><pre><code>git pull</code></pre></td>
+										<td>Atualiza o repositório local para o commit mais recente</td>
+									</tr>
+									<tr>
+										<td><pre><code>git remote</code></pre></td>
+										<td>Adiciona um repositório remoto</td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Tecnologias Relacionadas</h2>
+					</section>
+
+					<section>
+						<h2>GitKraken</h2>
+						<a href="https://www.gitkraken.com/" target="_blank"><img src="./img/img_10.png"></a>
+					</section>
+
+					<section>
+						<h2>Jekyll</h2>
+						<a href="https://jekyllrb.com/" target="_blank"><img src="./img/img_12.png"></a>
+					</section>
+
+					<section>
+						<h2>GitHub Pages</h2>
+						<a href="https://pages.github.com/" target="_blank"><img src="./img/img_11.png"></a>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Fim?</h2>
+					</section>
+
+					<section>
+						<h2>Documentação</h2>
+						<a href="https://git-scm.com/book/en/v2" target="_blank"><img src="./img/img_13.png"></a>
+					</section>
+
+					<section>
+						<h2>Rodrigo Branas</h2>
+						<a href="https://www.youtube.com/user/rodrigobranas" target="_blank"><img src="./img/img_14.png"></a>
+					</section>
+
+					<section>
+						<h2>Willian Justen</h2>
+						<a href="https://www.udemy.com/user/willian-justen-de-vasconcellos/" target="_blank"><img src="./img/img_15.png"></a>
+					</section>
+
+					<section>
+						<h2>Deep into git</h2>
+						<a href="https://www.youtube.com/results?search_query=deep+into+git" target="_blank"><img src="./img/img_16.png"></a>
+					</section>
+
+					<section data-transition="slide" data-background="#4169E1" data-background-transition="fade" >
+						<h1>Obrigado!</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
